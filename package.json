@@ -1,0 +1,25 @@
+{
+  "name": "onthebeach",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./spec/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitorleo80/Code-Challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitorleo80/Code-Challenge/issues"
+  },
+  "homepage": "https://github.com/vitorleo80/Code-Challenge#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^5.3.0",
+    "mocha": "^5.2.0"
+  }
+}
