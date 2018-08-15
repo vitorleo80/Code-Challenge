@@ -57,25 +57,25 @@ describe('orderedJobs', () => {
     it('should get an error message when including jobs that depend on themselves', () => {
         const errorMsg = `Jobs can’t depend on themselves.`
         let input = '{"a" : "a"}'
-        expect(function(){ orderedJobs(input)}).to.throw(Error, errorMsg)
+        expect(() => orderedJobs(input)).to.throw(Error, errorMsg)
         
         input = '{"a" : "", "b" : "", "c" : "c"}'
-        expect(function () { orderedJobs(input) }).to.throw(Error, errorMsg)
+        expect(() => orderedJobs(input)).to.throw(Error, errorMsg)
         
         input = '{"d" : "d", "e" : "", "f" : "f"}'
-        expect(function () { orderedJobs(input) }).to.throw(Error, errorMsg)
+        expect(() => orderedJobs(input)).to.throw(Error, errorMsg)
     })
 
     it('should get an error message when including jobs that contains circular dependencies', () => {
         const errorMsg = 'Sequence contains a circular set of dependencies.'
         let input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "", "f": "b"}'
-        expect(function(){ orderedJobs(input)}).to.throw(Error, errorMsg)
+        expect(() => orderedJobs(input)).to.throw(Error, errorMsg)
         
         input = '{"g": "", "h": "i", "i": "l", "j": "g", "k": "", "l": "h"}'
-        expect(function(){ orderedJobs(input)}).to.throw(Error, errorMsg)
+        expect(() => orderedJobs(input)).to.throw(Error, errorMsg)
 
         input = '{"m": "", "n": "o", "o": "n"}'
-        expect(function(){ orderedJobs(input)}).to.throw(Error, errorMsg)
+        expect(() => orderedJobs(input)).to.throw(Error, errorMsg)
     })
 })
 
