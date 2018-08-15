@@ -13,12 +13,17 @@ describe('orderedJobs', () => {
         const actual = orderedJobs(input);
         expect(actual).to.eql(['a']);
     })
-    it("returns an array of three elements in any order when passed three jobs without dependencies", () => {
+    it('should get an array in any order when passed jobs without dependencies', () => {
         const input = '{"a": "", "b": "", "c": ""}';
         const actual = orderedJobs(input);
         expect(actual).to.have.lengthOf(3);
         expect(actual).to.contain('a');
         expect(actual).to.contain('b');
         expect(actual).to.contain('c');
+    })
+    it('should get an array in the correct order, if jobs includes dependencies', () => {
+        const input = '{"a": "", "b": "c", "c": ""}';
+        const actual = orderedJobs(input)
+        expect(actual).to.eql(["a", "c", "b"])
     })
 })
