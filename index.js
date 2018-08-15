@@ -38,7 +38,7 @@ const orderedJobs = jobs => {
                 : jobsList.includes(dependency)
                 //if positive, include job in the right position
                 ? jobsList.splice(jobIndex + 1, 0, job)
-                //if not, include job first and then the dependency
+                //if not, include dependency first and then the job
                 : jobsList.push(dependency, job)
                     
         }
