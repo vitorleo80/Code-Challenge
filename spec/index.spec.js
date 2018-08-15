@@ -37,4 +37,9 @@ describe('orderedJobs', () => {
         expect(actual).to.equal(`Error: Jobs can’t depend on themselves.`);
     });
 
+    it("should get an error message when including jobs that contains circular dependencies", () => {
+        let input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "", "f": "b"}';
+        let actual = orderedJobs(input);
+        expect(actual).to.equal(`Error: sequence contains a circular set of dependencies.`);
+    });
 })
