@@ -21,9 +21,14 @@ describe('orderedJobs', () => {
         expect(actual).to.contain('b');
         expect(actual).to.contain('c');
     })
-    it('should get an array in the correct order, if jobs includes dependencies', () => {
+    it('should get an array in the correct order, if one job include a dependency', () => {
         const input = '{"a": "", "b": "c", "c": ""}';
         const actual = orderedJobs(input)
         expect(actual).to.eql(["a", "c", "b"])
+    })
+    it('should get an array in the correct order, if more than one jobs includes dependencies', () => {
+        let input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "b", "f": ""}';
+        let actual = orderedJobs(input);
+        expect(actual).to.eql(["a", "d", "f", "c", "b", "e"]);
     })
 })
