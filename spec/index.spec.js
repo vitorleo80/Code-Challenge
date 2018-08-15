@@ -31,4 +31,10 @@ describe('orderedJobs', () => {
         let actual = orderedJobs(input);
         expect(actual).to.eql(["a", "d", "f", "c", "b", "e"]);
     })
+    it("should get an error message when including jobs that depend on themselves", () => {
+        let input = '{"a" : "", "b" : "", "c" : "c"}';
+        let actual = orderedJobs(input);
+        expect(actual).to.equal(`Error: Jobs can’t depend on themselves.`);
+    });
+
 })
