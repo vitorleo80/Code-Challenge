@@ -24,7 +24,7 @@ const orderedJobs = jobs => {
                 : null  
         }
 
-        //if there is a job dependecy push to jobsList in the right position
+        //if there is a job dependency push to jobsList in the right position
         if (dependency) {
             //get index position of job and dependency in order to includes element in the right position
             const dependencyIndex = jobsList.indexOf(job)
